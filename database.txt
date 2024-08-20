@@ -1,0 +1,158 @@
+-- Create the database
+CREATE DATABASE library;
+
+-- Use the database
+USE library;
+
+-- Create the "genres" table
+CREATE TABLE genres (
+    id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    name VARCHAR(255) NOT NULL
+);
+
+-- Create the "users" table
+CREATE TABLE users (
+    id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    birthday DATE NOT NULL,
+    joining_date DATETIME NOT NULL,
+    is_removed BIT NOT NULL DEFAULT 0
+);
+
+-- Create the "books" table
+CREATE TABLE books (
+    id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    author VARCHAR(255),
+    genre_id INT NOT NULL,
+    description TEXT,
+    publisher VARCHAR(255) NOT NULL,
+    year SMALLINT NOT NULL,
+    is_removed BIT NOT NULL DEFAULT 0,
+    FOREIGN KEY (genre_id) REFERENCES genres(id)
+);
+
+-- Create the "records" table
+CREATE TABLE records (
+    id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    user_id INT NOT NULL,
+    book_id INT NOT NULL,
+    date DATETIME NOT NULL,
+    is_taken BIT NOT NULL DEFAULT 0,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (book_id) REFERENCES books(id)
+);
+
+
+-- Insert values into the 'genres' table
+INSERT INTO genres (name) VALUES
+('Fiction'),
+('Non-Fiction'),
+('Science Fiction'),
+('Fantasy'),
+('Mystery'),
+('Biography'),
+('Historical Fiction'),
+('Romance'),
+('Horror'),
+('Thriller'),
+('Self-Help'),
+('Poetry');
+
+-- Insert values into the 'users' table
+INSERT INTO users (first_name, last_name, birthday, joining_date) VALUES
+('John', 'Doe', '1990-01-15', '2022-03-01 10:15:00'),
+('Jane', 'Smith', '1988-04-22', '2022-03-03 11:20:00'),
+('Emily', 'Johnson', '1995-07-30', '2022-04-05 14:35:00'),
+('Michael', 'Williams', '1980-10-10', '2022-04-07 09:00:00'),
+('Sarah', 'Brown', '1992-02-25', '2022-05-12 12:00:00'),
+('David', 'Jones', '1985-05-05', '2022-05-15 16:45:00'),
+('Anna', 'Garcia', '1997-12-12', '2022-06-01 13:30:00'),
+('James', 'Martinez', '1993-08-14', '2022-06-15 10:05:00'),
+('Olivia', 'Rodriguez', '2000-09-01', '2022-07-10 09:55:00'),
+('Daniel', 'Lopez', '1994-11-25', '2022-07-15 11:40:00'),
+('Sophia', 'Gonzalez', '1998-03-18', '2022-08-03 15:25:00'),
+('William', 'Wilson', '1987-06-09', '2022-08-12 13:50:00'),
+('Chloe', 'Anderson', '1999-01-20', '2022-09-01 08:45:00'),
+('Matthew', 'Thomas', '1996-02-13', '2022-09-10 11:15:00'),
+('Ava', 'Lee', '2001-03-22', '2022-10-05 14:10:00');
+
+-- Insert values into the 'books' table
+INSERT INTO books (name, author, genre_id, description, publisher, year) VALUES
+('The Great Gatsby', 'F. Scott Fitzgerald', 1, 'A novel set in the Roaring Twenties', 'Scribner', 1925),
+('To Kill a Mockingbird', 'Harper Lee', 1, 'A story of racial injustice in the Deep South', 'J.B. Lippincott & Co.', 1960),
+('1984', 'George Orwell', 3, 'A dystopian novel set in a totalitarian regime', 'Secker & Warburg', 1949),
+('Pride and Prejudice', 'Jane Austen', 8, 'A romantic novel set in Regency-era England', 'T. Egerton', 1813),
+('The Catcher in the Rye', 'J.D. Salinger', 1, 'A novel about teenage rebellion and angst', 'Little, Brown and Company', 1951),
+('The Hobbit', 'J.R.R. Tolkien', 4, 'A fantasy novel about a hobbit''s adventure', 'George Allen & Unwin', 1937),
+('The Road', 'Cormac McCarthy', 4, 'A post-apocalyptic novel', 'Alfred A. Knopf', 2006),
+('Dune', 'Frank Herbert', 3, 'A science fiction novel set in a distant future', 'Chilton Books', 1965),
+('The Shining', 'Stephen King', 9, 'A horror novel about a haunted hotel', 'Doubleday', 1977),
+('The Girl with the Dragon Tattoo', 'Stieg Larsson', 5, 'A mystery novel set in Sweden', 'Norstedts Förlag', 2005),
+('Becoming', 'Michelle Obama', 6, 'A memoir by the former First Lady of the United States', 'Crown Publishing Group', 2018),
+('Sapiens: A Brief History of Humankind', 'Yuval Noah Harari', 2, 'A non-fiction book on the history of the human species', 'Harvill Secker', 2014),
+('Gone Girl', 'Gillian Flynn', 5, 'A thriller novel about a missing woman', 'Crown Publishing Group', 2012),
+('The Fault in Our Stars', 'John Green', 8, 'A romance novel about two teenagers with cancer', 'Dutton Books', 2012),
+('The Alchemist', 'Paulo Coelho', 7, 'A novel about a shepherd''s journey to find treasure', 'HarperTorch', 1988),
+('Educated', 'Tara Westover', 6, 'A memoir about growing up in a strict and abusive household in rural Idaho', 'Random House', 2018),
+('The Da Vinci Code', 'Dan Brown', 5, 'A mystery thriller about symbology and a hidden truth', 'Doubleday', 2003),
+('Dracula', 'Bram Stoker', 9, 'A gothic horror novel about a vampire', 'Archibald Constable and Company', 1897),
+('The Book Thief', 'Markus Zusak', 7, 'A historical novel set during WWII', 'Picador', 2005),
+('Brave New World', 'Aldous Huxley', 3, 'A dystopian novel set in a technologically advanced future', 'Chatto & Windus', 1932),
+('The Secret', 'Rhonda Byrne', 11, 'A self-help book on the power of positive thinking', 'Atria Books', 2006),
+('Inferno', 'Dan Brown', 5, 'A mystery thriller inspired by Dante''s Divine Comedy', 'Doubleday', 2013),
+('The Handmaid''s Tale', 'Margaret Atwood', 4, 'A dystopian novel set in a theocratic society', 'McClelland & Stewart', 1985),
+('The Silent Patient', 'Alex Michaelides', 5, 'A psychological thriller about a woman who refuses to speak', 'Celadon Books', 2019),
+('Where the Crawdads Sing', 'Delia Owens', 7, 'A mystery novel set in the marshes of North Carolina', 'G.P. Putnam''s Sons', 2018),
+('The Power of Now', 'Eckhart Tolle', 11, 'A self-help book on mindfulness and spiritual enlightenment', 'New World Library', 1997),
+('It', 'Stephen King', 9, 'A horror novel about a shape-shifting entity', 'Viking', 1986),
+('The Adventures of Sherlock Holmes', 'Arthur Conan Doyle', 5, 'A collection of detective stories', 'George Newnes Ltd', 1892),
+('A Brief History of Time', 'Stephen Hawking', 2, 'A non-fiction book on cosmology', 'Bantam Books', 1988),
+('Harry Potter and the Sorcerer''s Stone', 'J.K. Rowling', 4, 'A fantasy novel about a young wizard', 'Bloomsbury', 1997),
+('The Lord of the Rings', 'J.R.R. Tolkien', 4, 'An epic fantasy novel set in Middle-earth', 'George Allen & Unwin', 1954),
+('Life of Pi', 'Yann Martel', 7, 'A novel about a boy stranded on a lifeboat with a tiger', 'Knopf Canada', 2001),
+('Moby Dick', 'Herman Melville', 7, 'A novel about the quest to capture a giant whale', 'Richard Bentley', 1851),
+('The Picture of Dorian Gray', 'Oscar Wilde', 9, 'A novel about a man who remains young while his portrait ages', 'Lippincott''s Monthly Magazine', 1890),
+('Animal Farm', 'George Orwell', 3, 'A satirical novella about a group of farm animals who rebel', 'Secker & Warburg', 1945),
+('Jane Eyre', 'Charlotte Brontë', 8, 'A novel about a woman''s journey of self-discovery', 'Smith, Elder & Co.', 1847),
+('The Hitchhiker''s Guide to the Galaxy', 'Douglas Adams', 3, 'A science fiction comedy novel', 'Pan Books', 1979),
+('Catch-22', 'Joseph Heller', 7, 'A satirical novel about World War II', 'Simon & Schuster', 1961),
+('The Stand', 'Stephen King', 9, 'A post-apocalyptic horror novel', 'Doubleday', 1978),
+('Wuthering Heights', 'Emily Brontë', 8, 'A novel about the doomed love between Catherine and Heathcliff', 'Thomas Cautley Newby', 1847),
+('The Bell Jar', 'Sylvia Plath', 9, 'A novel about a young woman''s mental breakdown', 'Harper & Row', 1963),
+('The Old Man and the Sea', 'Ernest Hemingway', 7, 'A novel about an old fisherman''s struggle with a giant marlin', 'Charles Scribner''s Sons', 1952),
+('Maus', 'Art Spiegelman', 7, 'A graphic novel about the Holocaust', 'Pantheon Books', 1991),
+('Don Quixote', 'Miguel de Cervantes', 7, 'A novel about a man who believes he is a knight', 'Francisco de Robles', 1605),
+('The Scarlet Letter', 'Nathaniel Hawthorne', 7, 'A novel about sin and redemption in Puritan Massachusetts', 'Ticknor, Reed & Fields', 1850
+
+-- Insert values into the 'records' table
+INSERT INTO records (user_id, book_id, date, is_taken) VALUES
+(1, 5, '2023-01-05 10:00:00', 1),
+(2, 12, '2023-01-10 11:30:00', 1),
+(3, 18, '2023-01-15 12:45:00', 1),
+(4, 24, '2023-01-20 14:00:00', 1),
+(5, 31, '2023-01-25 15:30:00', 1),
+(6, 2, '2023-02-01 10:15:00', 1),
+(7, 8, '2023-02-03 11:40:00', 1),
+(1, 5, '2023-02-05 10:00:00', 0),
+(8, 14, '2023-02-07 12:55:00', 1),
+(2, 12, '2023-02-10 11:30:00', 0),
+(9, 20, '2023-02-10 14:20:00', 1),
+(10, 26, '2023-02-12 15:45:00', 1),
+(11, 33, '2023-02-15 10:00:00', 1),
+(3, 18, '2023-02-15 12:45:00', 0),
+(12, 37, '2023-02-18 11:30:00', 1),
+(13, 44, '2023-02-20 12:45:00', 1),
+(4, 24, '2023-02-20 14:00:00', 0),
+(14, 49, '2023-02-23 14:00:00', 1),
+(15, 1, '2023-02-25 15:30:00', 1),
+(5, 31, '2023-02-25 15:49:00', 0),
+(1, 4, '2023-03-01 10:15:00', 1),
+(2, 10, '2023-03-03 11:40:00', 1),
+(3, 17, '2023-03-05 12:55:00', 1),
+(4, 22, '2023-03-07 14:20:00', 1),
+(5, 29, '2023-03-09 15:45:00', 1),
+(6, 35, '2023-03-12 10:00:00', 1),
+(7, 42, '2023-03-14 11:30:00', 1),
+(8, 48, '2023-03-16 12:45:00', 1);
