@@ -29,9 +29,9 @@ namespace WinFormsApp.Forms
             SetupDataGridView();
             RefreshDataGridView();
         }
-        private List<Logic.Models.User> GetAllUsers()
+        private List<User> GetAllUsers()
         {
-            List<Logic.Models.User> books = new List<Logic.Models.User>();
+            List<User> books = new List<User>();
             using (var context = new LibraryContext())
             {
                 books = context.Users
@@ -45,7 +45,7 @@ namespace WinFormsApp.Forms
         {
             using (var context = new LibraryContext())
             {
-                Logic.Models.User user = context.Users.Where(u => u.Id == id).FirstOrDefault();
+                User user = context.Users.Where(u => u.Id == id).FirstOrDefault();
                 user.IsRemoved = true;
                 context.Users.Update(user);
                 context.SaveChanges();
@@ -60,12 +60,12 @@ namespace WinFormsApp.Forms
 
         private void buttonOpen_Click(object sender, EventArgs e)
         {
-            Logic.Models.User user;
+            User user;
             using (var context = new LibraryContext())
             {
                 user = context.Users
                     .Where(u => u.Id == (int)dataGridView.SelectedRows[0].Cells[0].Value)
-                    .FirstOrDefault() ?? new Logic.Models.User();
+                    .FirstOrDefault() ?? new User();
             }
             FormUser form = new FormUser(user);
             form.ShowDialog();
@@ -81,18 +81,31 @@ namespace WinFormsApp.Forms
             dataGridView.Columns[2].Name = "Last Name";
             dataGridView.Columns[3].Name = "Birthday";
             dataGridView.Columns[4].Name = "Joining Date";
-            dataGridView.Columns[5].Name = "Records' Number";            
+            dataGridView.Columns[5].Name = "Records";
+
+            dataGridView.Columns[0].FillWeight = 70;
+            dataGridView.Columns[1].FillWeight = 300;
+            dataGridView.Columns[2].FillWeight = 300;
+            dataGridView.Columns[3].FillWeight = 300;
+            dataGridView.Columns[4].FillWeight = 300;
+            dataGridView.Columns[5].FillWeight = 200;
+
+            dataGridView.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            foreach (DataGridViewColumn c in dataGridView.Columns)
+                c.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             dataGridView.RowHeadersVisible = false;
-            dataGridView.AllowUserToAddRows = false;
+            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-        private void PopulateDataGridView(List<Logic.Models.User> users)
+        private void PopulateDataGridView(List<User> users)
         {
             dataGridView.Rows.Clear();
             foreach (var u in users)
-            {                
-                dataGridView.Rows.Add(u.Id, u.FirstName, u.LastName, u.Birthday, 
+            {
+                dataGridView.Rows.Add(u.Id, u.FirstName, u.LastName, u.Birthday,
                     u.JoiningDate.ToString("dd/MM/yy HH:mm"), u.Records.Count());
             }
         }
@@ -115,7 +128,7 @@ namespace WinFormsApp.Forms
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             string search = textBoxSearch.Text.Trim();
-            List<Logic.Models.User> users = new List<Logic.Models.User>();
+            List<User> users = new List<User>();
             using (var context = new LibraryContext())
             {
                 users = context.Users
@@ -132,6 +145,11 @@ namespace WinFormsApp.Forms
         private void RefreshDataGridView()
         {
             PopulateDataGridView(GetAllUsers());
+        }
+
+        private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            buttonOpen_Click(sender, e);
         }
     }
 }

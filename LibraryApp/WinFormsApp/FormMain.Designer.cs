@@ -122,6 +122,8 @@
             Controls.Add(panelMain);
             Controls.Add(panelMenu);
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FormMain";
             Text = "Library";
             Load += FormMain_Load;

@@ -66,6 +66,12 @@ namespace WinFormsApp.Forms
             checkBoxIsRemoved.Enabled = true;
             buttonEdit.Visible = false;
             buttonSave.Visible = true;
+            foreach (Control c in this.Controls)
+            {
+                if (c.Tag == "FieldsToEdit")
+                    c.BackColor = Color.LightYellow;
+            }
+
         }
         private void DisableEdit()
         {
@@ -78,6 +84,14 @@ namespace WinFormsApp.Forms
             checkBoxIsRemoved.Enabled = false;
             buttonEdit.Visible = true;
             buttonSave.Visible = false;
+            foreach (Control c in this.Controls)
+            {
+                if (c.Tag == "FieldsToEdit")
+                {
+                    c.BackColor = Color.White;
+                    c.ForeColor = Color.Black;
+                }
+            }
         }
 
         public Book GetData()

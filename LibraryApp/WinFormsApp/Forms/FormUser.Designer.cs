@@ -218,6 +218,7 @@
             Controls.Add(labelFirstName);
             Controls.Add(labelId);
             Controls.Add(labelUser);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "FormUser";
             Text = "FormUser";
             ResumeLayout(false);

@@ -86,16 +86,31 @@ namespace WinFormsApp.Forms
             dataGridView.Columns[5].Name = "Publisher";
             dataGridView.Columns[6].Name = "Available";
 
+            dataGridView.Columns[0].FillWeight = 70;
+            dataGridView.Columns[1].FillWeight = 370;
+            dataGridView.Columns[2].FillWeight = 300;
+            dataGridView.Columns[3].FillWeight = 200;
+            dataGridView.Columns[4].FillWeight = 120;
+            dataGridView.Columns[5].FillWeight = 300;
+            dataGridView.Columns[6].FillWeight = 110;
+
+            dataGridView.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            foreach (DataGridViewColumn c in dataGridView.Columns)
+                c.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
             dataGridView.RowHeadersVisible = false;
-            dataGridView.AllowUserToAddRows = false;
+            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
         }
         private void PopulateDataGridView(List<Book> books)
         {
-            dataGridView.Rows.Clear();            
+            dataGridView.Rows.Clear();
             foreach (var b in books)
             {
-                var available = b.Records.Count != 0 && b.Records.FirstOrDefault().IsTaken ? "No" : "Yes";              
+                var available = b.Records.Count != 0 && b.Records.FirstOrDefault().IsTaken ? "No" : "Yes";
                 dataGridView.Rows.Add(b.Id, b.Name, b.Author, b.Genre.Name, b.Year, b.Publisher, available);
             }
         }
@@ -138,6 +153,11 @@ namespace WinFormsApp.Forms
         private void RefreshDataGridView()
         {
             PopulateDataGridView(GetAllBooks());
+        }
+
+        private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            buttonOpen_Click(sender, e);
         }
     }
 }
