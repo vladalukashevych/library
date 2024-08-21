@@ -34,7 +34,7 @@
             dataGridView = new DataGridView();
             textBoxSearch = new TextBox();
             buttonSearch = new Button();
-            label1 = new Label();
+            labelFormName = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -50,6 +50,7 @@
             // 
             // buttonOpen
             // 
+            buttonOpen.Enabled = false;
             buttonOpen.Location = new Point(679, 783);
             buttonOpen.Name = "buttonOpen";
             buttonOpen.Size = new Size(146, 29);
@@ -60,6 +61,7 @@
             // 
             // buttonRemove
             // 
+            buttonRemove.Enabled = false;
             buttonRemove.Location = new Point(983, 783);
             buttonRemove.Name = "buttonRemove";
             buttonRemove.Size = new Size(146, 29);
@@ -96,22 +98,22 @@
             buttonSearch.UseVisualStyleBackColor = true;
             buttonSearch.Click += buttonSearch_Click;
             // 
-            // label1
+            // labelFormName
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label1.Location = new Point(16, 20);
-            label1.Name = "label1";
-            label1.Size = new Size(91, 38);
-            label1.TabIndex = 7;
-            label1.Text = "Books";
+            labelFormName.AutoSize = true;
+            labelFormName.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelFormName.Location = new Point(16, 20);
+            labelFormName.Name = "labelFormName";
+            labelFormName.Size = new Size(91, 38);
+            labelFormName.TabIndex = 7;
+            labelFormName.Text = "Books";
             // 
             // FormBooks
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1150, 840);
-            Controls.Add(label1);
+            Controls.Add(labelFormName);
             Controls.Add(buttonSearch);
             Controls.Add(textBoxSearch);
             Controls.Add(dataGridView);
@@ -135,6 +137,6 @@
         private DataGridView dataGridView;
         private TextBox textBoxSearch;
         private Button buttonSearch;
-        private Label label1;
+        private Label labelFormName;
     }
 }

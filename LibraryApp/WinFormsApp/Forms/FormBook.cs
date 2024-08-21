@@ -51,9 +51,8 @@ namespace WinFormsApp.Forms
             richTextBoxDescription.Text = CurrentBook.Description;
             textBoxYear.Text = CurrentBook.Year.ToString();
             checkBoxIsRemoved.Checked = CurrentBook.IsRemoved;
-            checkBoxIsAvailable.Checked = CurrentBook.Records.Count != 0 &&
-                CurrentBook.Records.FirstOrDefault().IsTaken ? false : true;      
-            SetComboBoxGenre();            
+            checkBoxIsAvailable.Checked = CurrentBook.IsAvailable;
+            SetComboBoxGenre();
         }
         private void EnableEdit()
         {
@@ -65,7 +64,7 @@ namespace WinFormsApp.Forms
             comboBoxGenre.Enabled = true;
             checkBoxIsRemoved.Enabled = true;
             buttonEdit.Visible = false;
-            buttonSave.Visible = true;
+            buttonSave.Visible = true;            
             foreach (Control c in this.Controls)
             {
                 if (c.Tag == "FieldsToEdit")
@@ -83,7 +82,7 @@ namespace WinFormsApp.Forms
             comboBoxGenre.Enabled = false;
             checkBoxIsRemoved.Enabled = false;
             buttonEdit.Visible = true;
-            buttonSave.Visible = false;
+            buttonSave.Visible = false;            
             foreach (Control c in this.Controls)
             {
                 if (c.Tag == "FieldsToEdit")
@@ -137,7 +136,7 @@ namespace WinFormsApp.Forms
                     context.SaveChanges();
                 }
             }
-            
+
             DisableEdit();
         }
 
@@ -145,8 +144,8 @@ namespace WinFormsApp.Forms
         {
             target.Name = source.Name;
             target.Author = source.Author;
-            target.GenreId = source.GenreId; 
-            if (!string.IsNullOrEmpty(source.Description)) 
+            target.GenreId = source.GenreId;
+            if (!string.IsNullOrEmpty(source.Description))
                 target.Description = source.Description;
             target.Publisher = source.Publisher;
             target.Year = source.Year;
@@ -175,10 +174,16 @@ namespace WinFormsApp.Forms
             {
                 message = "Please, enter the year of the book.";
                 return false;
-            }            
-                
+            }
+
             message = "Validation is successfull.";
             return true;
+        }
+
+        private void buttonAddRecord_Click(object sender, EventArgs e)
+        {
+            FormRecord form = new FormRecord(CurrentBook);
+            form.ShowDialog();        
         }
     }
 }

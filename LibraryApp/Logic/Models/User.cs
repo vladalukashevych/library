@@ -2,8 +2,8 @@
 
 public partial class User
 {
-    public string FullName
+    public string NameForRecord
     {
-        get => $"{FirstName} {LastName}";
+        get => $"{Id} - {FirstName} {LastName}";
     }
 }

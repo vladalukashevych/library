@@ -33,8 +33,8 @@ namespace WinFormsApp.Forms
             textBoxId.Text = CurrentUser.Id.ToString();
             textBoxFirstName.Text = CurrentUser.FirstName;
             textBoxLastName.Text = CurrentUser.LastName;
-            dateTimePickerBirthday.Value = CurrentUser.Birthday.ToDateTime(new TimeOnly());            
-            textBoxJoiningDate.Text = CurrentUser.JoiningDate.ToString();
+            dateTimePickerBirthday.Value = CurrentUser.Birthday.ToDateTime(new TimeOnly());
+            textBoxJoiningDate.Text = CurrentUser.JoiningDate.ToString("dd/MM/yy HH:mm");
             textBoxRecordsNumber.Text = CurrentUser.Records.Count.ToString();
             checkBoxIsRemoved.Checked = CurrentUser.IsRemoved;            
         }
@@ -47,6 +47,11 @@ namespace WinFormsApp.Forms
             checkBoxIsRemoved.Enabled = true;
             buttonEdit.Visible = false;
             buttonSave.Visible = true;
+            foreach (Control c in this.Controls)
+            {
+                if (c.Tag == "FieldsToEdit")
+                    c.BackColor = Color.LightYellow;
+            }
         }
 
         private void DisableEdit()
@@ -57,6 +62,11 @@ namespace WinFormsApp.Forms
             checkBoxIsRemoved.Enabled = false;
             buttonEdit.Visible = true;
             buttonSave.Visible = false;
+            foreach (Control c in this.Controls)
+            {
+                if (c.Tag == "FieldsToEdit")
+                    c.BackColor = Color.White;
+            }
         }
 
         public User GetData()

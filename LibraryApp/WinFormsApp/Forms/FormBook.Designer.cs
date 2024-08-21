@@ -54,7 +54,7 @@
             // labelName
             // 
             labelName.AutoSize = true;
-            labelName.Location = new Point(68, 131);
+            labelName.Location = new Point(71, 146);
             labelName.Margin = new Padding(10);
             labelName.Name = "labelName";
             labelName.Size = new Size(52, 20);
@@ -64,7 +64,7 @@
             // labelYear
             // 
             labelYear.AutoSize = true;
-            labelYear.Location = new Point(80, 345);
+            labelYear.Location = new Point(83, 360);
             labelYear.Margin = new Padding(3);
             labelYear.Name = "labelYear";
             labelYear.Size = new Size(40, 20);
@@ -74,7 +74,7 @@
             // labelPublisher
             // 
             labelPublisher.AutoSize = true;
-            labelPublisher.Location = new Point(48, 306);
+            labelPublisher.Location = new Point(51, 321);
             labelPublisher.Margin = new Padding(3);
             labelPublisher.Name = "labelPublisher";
             labelPublisher.Size = new Size(72, 20);
@@ -84,7 +84,7 @@
             // labelDescription
             // 
             labelDescription.AutoSize = true;
-            labelDescription.Location = new Point(32, 219);
+            labelDescription.Location = new Point(35, 234);
             labelDescription.Margin = new Padding(3);
             labelDescription.Name = "labelDescription";
             labelDescription.Size = new Size(88, 20);
@@ -94,7 +94,7 @@
             // labelAuthor
             // 
             labelAuthor.AutoSize = true;
-            labelAuthor.Location = new Point(63, 170);
+            labelAuthor.Location = new Point(66, 185);
             labelAuthor.Margin = new Padding(3);
             labelAuthor.Name = "labelAuthor";
             labelAuthor.Size = new Size(57, 20);
@@ -104,7 +104,7 @@
             // labelGenre
             // 
             labelGenre.AutoSize = true;
-            labelGenre.Location = new Point(69, 384);
+            labelGenre.Location = new Point(72, 399);
             labelGenre.Margin = new Padding(3);
             labelGenre.Name = "labelGenre";
             labelGenre.Size = new Size(51, 20);
@@ -114,7 +114,7 @@
             // labelId
             // 
             labelId.AutoSize = true;
-            labelId.Location = new Point(88, 96);
+            labelId.Location = new Point(98, 107);
             labelId.Margin = new Padding(10);
             labelId.Name = "labelId";
             labelId.Size = new Size(25, 20);
@@ -124,10 +124,10 @@
             // labelBook
             // 
             labelBook.AutoSize = true;
-            labelBook.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelBook.Location = new Point(270, 22);
+            labelBook.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelBook.Location = new Point(254, 22);
             labelBook.Name = "labelBook";
-            labelBook.Size = new Size(62, 25);
+            labelBook.Size = new Size(80, 32);
             labelBook.TabIndex = 8;
             labelBook.Text = "BOOK";
             // 
@@ -144,7 +144,7 @@
             // textBoxId
             // 
             textBoxId.BackColor = SystemColors.Window;
-            textBoxId.Location = new Point(129, 89);
+            textBoxId.Location = new Point(132, 104);
             textBoxId.Margin = new Padding(6);
             textBoxId.Name = "textBoxId";
             textBoxId.ReadOnly = true;
@@ -153,7 +153,7 @@
             // 
             // textBoxName
             // 
-            textBoxName.Location = new Point(129, 128);
+            textBoxName.Location = new Point(132, 143);
             textBoxName.Margin = new Padding(6);
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(233, 27);
@@ -162,7 +162,7 @@
             // 
             // textBoxYear
             // 
-            textBoxYear.Location = new Point(129, 342);
+            textBoxYear.Location = new Point(132, 357);
             textBoxYear.Margin = new Padding(6);
             textBoxYear.Name = "textBoxYear";
             textBoxYear.Size = new Size(159, 27);
@@ -171,7 +171,7 @@
             // 
             // textBoxPublisher
             // 
-            textBoxPublisher.Location = new Point(129, 303);
+            textBoxPublisher.Location = new Point(132, 318);
             textBoxPublisher.Margin = new Padding(6);
             textBoxPublisher.Name = "textBoxPublisher";
             textBoxPublisher.Size = new Size(233, 27);
@@ -180,7 +180,7 @@
             // 
             // textBoxAuthor
             // 
-            textBoxAuthor.Location = new Point(129, 167);
+            textBoxAuthor.Location = new Point(132, 182);
             textBoxAuthor.Margin = new Padding(6);
             textBoxAuthor.Name = "textBoxAuthor";
             textBoxAuthor.Size = new Size(233, 27);
@@ -190,7 +190,7 @@
             // comboBoxGenre
             // 
             comboBoxGenre.FormattingEnabled = true;
-            comboBoxGenre.Location = new Point(129, 381);
+            comboBoxGenre.Location = new Point(132, 396);
             comboBoxGenre.Margin = new Padding(6);
             comboBoxGenre.Name = "comboBoxGenre";
             comboBoxGenre.Size = new Size(159, 28);
@@ -199,7 +199,7 @@
             // 
             // richTextBoxDescription
             // 
-            richTextBoxDescription.Location = new Point(129, 206);
+            richTextBoxDescription.Location = new Point(132, 221);
             richTextBoxDescription.Margin = new Padding(6);
             richTextBoxDescription.Name = "richTextBoxDescription";
             richTextBoxDescription.Size = new Size(233, 85);
@@ -220,7 +220,7 @@
             // labelIsRemoved
             // 
             labelIsRemoved.AutoSize = true;
-            labelIsRemoved.Location = new Point(45, 507);
+            labelIsRemoved.Location = new Point(48, 498);
             labelIsRemoved.Margin = new Padding(3);
             labelIsRemoved.Name = "labelIsRemoved";
             labelIsRemoved.Size = new Size(75, 20);
@@ -230,7 +230,7 @@
             // checkBoxIsRemoved
             // 
             checkBoxIsRemoved.AutoSize = true;
-            checkBoxIsRemoved.Location = new Point(129, 510);
+            checkBoxIsRemoved.Location = new Point(132, 501);
             checkBoxIsRemoved.Margin = new Padding(6);
             checkBoxIsRemoved.Name = "checkBoxIsRemoved";
             checkBoxIsRemoved.Size = new Size(18, 17);
@@ -241,7 +241,7 @@
             // labelIsAvailable
             // 
             labelIsAvailable.AutoSize = true;
-            labelIsAvailable.Location = new Point(419, 92);
+            labelIsAvailable.Location = new Point(422, 107);
             labelIsAvailable.Margin = new Padding(3);
             labelIsAvailable.Name = "labelIsAvailable";
             labelIsAvailable.Size = new Size(74, 20);
@@ -254,7 +254,7 @@
             checkBoxIsAvailable.BackColor = SystemColors.Window;
             checkBoxIsAvailable.Enabled = false;
             checkBoxIsAvailable.ForeColor = SystemColors.Desktop;
-            checkBoxIsAvailable.Location = new Point(499, 95);
+            checkBoxIsAvailable.Location = new Point(502, 110);
             checkBoxIsAvailable.Name = "checkBoxIsAvailable";
             checkBoxIsAvailable.Size = new Size(18, 17);
             checkBoxIsAvailable.TabIndex = 21;

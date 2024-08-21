@@ -46,7 +46,9 @@ namespace WinFormsApp.Forms
         {
             using (var context = new LibraryContext())
             {
-                Book book = (Book)context.Books.Where(b => b.Id == id).First();
+                Book book = (Book)context.Books
+                    .Where(b => b.Id == id)
+                    .First();
                 book.IsRemoved = true;
                 context.Books.Update(book);
                 context.SaveChanges();
@@ -60,6 +62,11 @@ namespace WinFormsApp.Forms
         }
 
         private void buttonOpen_Click(object sender, EventArgs e)
+        {
+            OpenSelectedBook();
+        }
+
+        private void OpenSelectedBook()
         {
             Book book;
             using (var context = new LibraryContext())
@@ -102,6 +109,7 @@ namespace WinFormsApp.Forms
                 c.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             dataGridView.RowHeadersVisible = false;
+            dataGridView.AllowUserToAddRows = false;
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
         }
@@ -110,8 +118,14 @@ namespace WinFormsApp.Forms
             dataGridView.Rows.Clear();
             foreach (var b in books)
             {
-                var available = b.Records.Count != 0 && b.Records.FirstOrDefault().IsTaken ? "No" : "Yes";
+                var available = b.IsAvailable ? "Yes" : "No";
                 dataGridView.Rows.Add(b.Id, b.Name, b.Author, b.Genre.Name, b.Year, b.Publisher, available);
+            }
+
+            if (dataGridView.Rows.Count > 0)
+            {
+                buttonRemove.Enabled = true;
+                buttonOpen.Enabled = true;
             }
         }
 
@@ -119,7 +133,7 @@ namespace WinFormsApp.Forms
         {
             foreach (DataGridViewRow item in dataGridView.SelectedRows)
             {
-                var str = $"Are you sure you want to delete book: \n" +
+                var str = $"Are you sure you want to remove book: \n" +
                     $" {item.Cells[0].Value} - «{item.Cells[1].Value}» {item.Cells[2].Value}";
                 DialogResult dr = MessageBox.Show(str, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dr == DialogResult.Yes)
@@ -138,7 +152,8 @@ namespace WinFormsApp.Forms
             {
                 books = context.Books
                     .Where(book => !book.IsRemoved &&
-                   (book.Name.Contains(search) ||
+                   (book.Id.ToString().Contains(search) ||
+                    book.Name.Contains(search) ||
                     book.Author.Contains(search) ||
                     book.Year.ToString().Contains(search) ||
                     book.Publisher.Contains(search) ||
@@ -157,7 +172,12 @@ namespace WinFormsApp.Forms
 
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            buttonOpen_Click(sender, e);
+            OpenSelectedBook();
+        }
+
+        private void buttonAddRecord_Click(object sender, EventArgs e)
+        {
+            FormRecord form = new FormRecord();
         }
     }
 }

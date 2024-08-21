@@ -50,16 +50,17 @@
             // labelUser
             // 
             labelUser.AutoSize = true;
-            labelUser.Location = new Point(281, 36);
+            labelUser.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelUser.Location = new Point(230, 25);
             labelUser.Name = "labelUser";
-            labelUser.Size = new Size(44, 20);
+            labelUser.Size = new Size(71, 32);
             labelUser.TabIndex = 0;
             labelUser.Text = "USER";
             // 
             // labelId
             // 
             labelId.AutoSize = true;
-            labelId.Location = new Point(130, 110);
+            labelId.Location = new Point(165, 121);
             labelId.Name = "labelId";
             labelId.Size = new Size(25, 20);
             labelId.TabIndex = 1;
@@ -68,7 +69,7 @@
             // labelFirstName
             // 
             labelFirstName.AutoSize = true;
-            labelFirstName.Location = new Point(121, 162);
+            labelFirstName.Location = new Point(107, 164);
             labelFirstName.Name = "labelFirstName";
             labelFirstName.Size = new Size(83, 20);
             labelFirstName.TabIndex = 2;
@@ -77,7 +78,7 @@
             // labelLastName
             // 
             labelLastName.AutoSize = true;
-            labelLastName.Location = new Point(130, 206);
+            labelLastName.Location = new Point(108, 207);
             labelLastName.Name = "labelLastName";
             labelLastName.Size = new Size(82, 20);
             labelLastName.TabIndex = 3;
@@ -86,7 +87,7 @@
             // labelBirthday
             // 
             labelBirthday.AutoSize = true;
-            labelBirthday.Location = new Point(130, 248);
+            labelBirthday.Location = new Point(123, 252);
             labelBirthday.Name = "labelBirthday";
             labelBirthday.Size = new Size(67, 20);
             labelBirthday.TabIndex = 4;
@@ -95,16 +96,16 @@
             // labelJoiningDate
             // 
             labelJoiningDate.AutoSize = true;
-            labelJoiningDate.Location = new Point(130, 285);
+            labelJoiningDate.Location = new Point(93, 293);
             labelJoiningDate.Name = "labelJoiningDate";
-            labelJoiningDate.Size = new Size(99, 20);
+            labelJoiningDate.Size = new Size(95, 20);
             labelJoiningDate.TabIndex = 5;
-            labelJoiningDate.Text = "Joining Date: ";
+            labelJoiningDate.Text = "Joining Date:";
             // 
             // labelRecordsNumber
             // 
             labelRecordsNumber.AutoSize = true;
-            labelRecordsNumber.Location = new Point(130, 325);
+            labelRecordsNumber.Location = new Point(125, 336);
             labelRecordsNumber.Name = "labelRecordsNumber";
             labelRecordsNumber.Size = new Size(65, 20);
             labelRecordsNumber.TabIndex = 7;
@@ -112,47 +113,57 @@
             // 
             // textBoxId
             // 
-            textBoxId.Location = new Point(161, 107);
+            textBoxId.BackColor = SystemColors.Window;
+            textBoxId.Location = new Point(199, 118);
+            textBoxId.Margin = new Padding(6, 8, 6, 8);
             textBoxId.Name = "textBoxId";
             textBoxId.ReadOnly = true;
-            textBoxId.Size = new Size(125, 27);
+            textBoxId.Size = new Size(87, 27);
             textBoxId.TabIndex = 11;
             // 
             // textBoxFirstName
             // 
-            textBoxFirstName.Location = new Point(215, 161);
+            textBoxFirstName.Location = new Point(199, 161);
+            textBoxFirstName.Margin = new Padding(6, 8, 6, 8);
             textBoxFirstName.Name = "textBoxFirstName";
-            textBoxFirstName.Size = new Size(125, 27);
+            textBoxFirstName.Size = new Size(175, 27);
             textBoxFirstName.TabIndex = 12;
+            textBoxFirstName.Tag = "FieldsToEdit";
             // 
             // textBoxJoiningDate
             // 
-            textBoxJoiningDate.Location = new Point(235, 278);
+            textBoxJoiningDate.BackColor = SystemColors.Window;
+            textBoxJoiningDate.Location = new Point(201, 290);
+            textBoxJoiningDate.Margin = new Padding(6, 8, 6, 8);
             textBoxJoiningDate.Name = "textBoxJoiningDate";
             textBoxJoiningDate.ReadOnly = true;
-            textBoxJoiningDate.Size = new Size(125, 27);
+            textBoxJoiningDate.Size = new Size(175, 27);
             textBoxJoiningDate.TabIndex = 13;
             // 
             // textBoxRecordsNumber
             // 
-            textBoxRecordsNumber.Location = new Point(201, 318);
+            textBoxRecordsNumber.BackColor = SystemColors.Window;
+            textBoxRecordsNumber.Location = new Point(199, 333);
+            textBoxRecordsNumber.Margin = new Padding(6, 8, 6, 8);
             textBoxRecordsNumber.Name = "textBoxRecordsNumber";
             textBoxRecordsNumber.ReadOnly = true;
-            textBoxRecordsNumber.Size = new Size(125, 27);
+            textBoxRecordsNumber.Size = new Size(87, 27);
             textBoxRecordsNumber.TabIndex = 15;
             // 
             // textBoxLastName
             // 
-            textBoxLastName.Location = new Point(227, 203);
+            textBoxLastName.Location = new Point(199, 204);
+            textBoxLastName.Margin = new Padding(6, 8, 6, 8);
             textBoxLastName.Name = "textBoxLastName";
-            textBoxLastName.Size = new Size(125, 27);
+            textBoxLastName.Size = new Size(175, 27);
             textBoxLastName.TabIndex = 17;
+            textBoxLastName.Tag = "FieldsToEdit";
             // 
             // buttonSave
             // 
-            buttonSave.Location = new Point(515, 527);
+            buttonSave.Location = new Point(341, 457);
             buttonSave.Name = "buttonSave";
-            buttonSave.Size = new Size(94, 29);
+            buttonSave.Size = new Size(131, 29);
             buttonSave.TabIndex = 19;
             buttonSave.Text = "Save";
             buttonSave.UseVisualStyleBackColor = true;
@@ -160,9 +171,9 @@
             // 
             // buttonEdit
             // 
-            buttonEdit.Location = new Point(515, 527);
+            buttonEdit.Location = new Point(341, 457);
             buttonEdit.Name = "buttonEdit";
-            buttonEdit.Size = new Size(94, 29);
+            buttonEdit.Size = new Size(131, 29);
             buttonEdit.TabIndex = 18;
             buttonEdit.Text = "Edit";
             buttonEdit.UseVisualStyleBackColor = true;
@@ -171,16 +182,17 @@
             // checkBoxIsRemoved
             // 
             checkBoxIsRemoved.AutoSize = true;
-            checkBoxIsRemoved.Location = new Point(235, 511);
+            checkBoxIsRemoved.Location = new Point(147, 464);
             checkBoxIsRemoved.Name = "checkBoxIsRemoved";
             checkBoxIsRemoved.Size = new Size(18, 17);
             checkBoxIsRemoved.TabIndex = 21;
+            checkBoxIsRemoved.Tag = "FieldsToEdit";
             checkBoxIsRemoved.UseVisualStyleBackColor = true;
             // 
             // labelIsRemoved
             // 
             labelIsRemoved.AutoSize = true;
-            labelIsRemoved.Location = new Point(152, 509);
+            labelIsRemoved.Location = new Point(64, 462);
             labelIsRemoved.Name = "labelIsRemoved";
             labelIsRemoved.Size = new Size(75, 20);
             labelIsRemoved.TabIndex = 20;
@@ -188,19 +200,16 @@
             // 
             // dateTimePickerBirthday
             // 
-            dateTimePickerBirthday.Checked = false;
-            dateTimePickerBirthday.CustomFormat = "dd/MM/yyyy";
-            dateTimePickerBirthday.Location = new Point(215, 243);
+            dateTimePickerBirthday.Location = new Point(199, 247);
             dateTimePickerBirthday.Name = "dateTimePickerBirthday";
-            dateTimePickerBirthday.Size = new Size(185, 27);
+            dateTimePickerBirthday.Size = new Size(177, 27);
             dateTimePickerBirthday.TabIndex = 22;
-            dateTimePickerBirthday.Value = new DateTime(2024, 8, 20, 20, 52, 43, 0);
             // 
             // FormUser
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(664, 622);
+            ClientSize = new Size(534, 524);
             Controls.Add(dateTimePickerBirthday);
             Controls.Add(checkBoxIsRemoved);
             Controls.Add(labelIsRemoved);
@@ -219,8 +228,10 @@
             Controls.Add(labelId);
             Controls.Add(labelUser);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FormUser";
-            Text = "FormUser";
+            Text = "User";
             ResumeLayout(false);
             PerformLayout();
         }

@@ -124,7 +124,7 @@ INSERT INTO books (name, author, genre_id, description, publisher, year) VALUES
 ('The Old Man and the Sea', 'Ernest Hemingway', 7, 'A novel about an old fisherman''s struggle with a giant marlin', 'Charles Scribner''s Sons', 1952),
 ('Maus', 'Art Spiegelman', 7, 'A graphic novel about the Holocaust', 'Pantheon Books', 1991),
 ('Don Quixote', 'Miguel de Cervantes', 7, 'A novel about a man who believes he is a knight', 'Francisco de Robles', 1605),
-('The Scarlet Letter', 'Nathaniel Hawthorne', 7, 'A novel about sin and redemption in Puritan Massachusetts', 'Ticknor, Reed & Fields', 1850
+('The Scarlet Letter', 'Nathaniel Hawthorne', 7, 'A novel about sin and redemption in Puritan Massachusetts', 'Ticknor, Reed & Fields', 1850);
 
 -- Insert values into the 'records' table
 INSERT INTO records (user_id, book_id, date, is_taken) VALUES

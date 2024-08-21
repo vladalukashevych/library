@@ -45,7 +45,9 @@ namespace WinFormsApp.Forms
         {
             using (var context = new LibraryContext())
             {
-                User user = context.Users.Where(u => u.Id == id).FirstOrDefault();
+                User user = context.Users
+                    .Where(u => u.Id == id)
+                    .FirstOrDefault() ?? new User();
                 user.IsRemoved = true;
                 context.Users.Update(user);
                 context.SaveChanges();
@@ -60,18 +62,23 @@ namespace WinFormsApp.Forms
 
         private void buttonOpen_Click(object sender, EventArgs e)
         {
+            OpenSelectedUser();
+        }
+
+        private void OpenSelectedUser()
+        {
             User user;
             using (var context = new LibraryContext())
             {
                 user = context.Users
                     .Where(u => u.Id == (int)dataGridView.SelectedRows[0].Cells[0].Value)
+                    .Include(u => u.Records)
                     .FirstOrDefault() ?? new User();
             }
             FormUser form = new FormUser(user);
             form.ShowDialog();
             RefreshDataGridView();
         }
-
 
         private void SetupDataGridView()
         {
@@ -97,6 +104,7 @@ namespace WinFormsApp.Forms
                 c.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             dataGridView.RowHeadersVisible = false;
+            dataGridView.AllowUserToAddRows = false;                   
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
@@ -108,14 +116,19 @@ namespace WinFormsApp.Forms
                 dataGridView.Rows.Add(u.Id, u.FirstName, u.LastName, u.Birthday,
                     u.JoiningDate.ToString("dd/MM/yy HH:mm"), u.Records.Count());
             }
+            if (dataGridView.Rows.Count > 0)
+            {
+                buttonRemove.Enabled = true;
+                buttonOpen.Enabled = true;
+            }
         }
 
         private void buttonRemove_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow item in dataGridView.SelectedRows)
             {
-                var str = $"Are you sure you want to delete user: \n" +
-                    $" {item.Cells[0].Value} - «{item.Cells[1].Value}» {item.Cells[2].Value}";
+                var str = $"Are you sure you want to remove user: \n" +
+                    $" {item.Cells[0].Value} - {item.Cells[1].Value} {item.Cells[2].Value}";
                 DialogResult dr = MessageBox.Show(str, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dr == DialogResult.Yes)
                 {
@@ -133,7 +146,8 @@ namespace WinFormsApp.Forms
             {
                 users = context.Users
                     .Where(u => !u.IsRemoved &&
-                   (u.FirstName.Contains(search) ||
+                   (u.Id.ToString().Contains(search) ||
+                    u.FirstName.Contains(search) ||
                     u.LastName.Contains(search) ||
                     u.Birthday.ToString().Contains(search)))
                     .Include(book => book.Records.OrderByDescending(r => r.Date))
@@ -149,7 +163,7 @@ namespace WinFormsApp.Forms
 
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            buttonOpen_Click(sender, e);
+            OpenSelectedUser();
         }
     }
 }
