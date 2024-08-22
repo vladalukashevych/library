@@ -150,6 +150,7 @@
             textBoxId.ReadOnly = true;
             textBoxId.Size = new Size(87, 27);
             textBoxId.TabIndex = 10;
+            textBoxId.Tag = "DisableFields";
             // 
             // textBoxName
             // 
@@ -158,7 +159,7 @@
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(233, 27);
             textBoxName.TabIndex = 11;
-            textBoxName.Tag = "FieldsToEdit";
+            textBoxName.Tag = "EditFields";
             // 
             // textBoxYear
             // 
@@ -167,7 +168,7 @@
             textBoxYear.Name = "textBoxYear";
             textBoxYear.Size = new Size(159, 27);
             textBoxYear.TabIndex = 12;
-            textBoxYear.Tag = "FieldsToEdit";
+            textBoxYear.Tag = "EditFields";
             // 
             // textBoxPublisher
             // 
@@ -176,7 +177,7 @@
             textBoxPublisher.Name = "textBoxPublisher";
             textBoxPublisher.Size = new Size(233, 27);
             textBoxPublisher.TabIndex = 13;
-            textBoxPublisher.Tag = "FieldsToEdit";
+            textBoxPublisher.Tag = "EditFields";
             // 
             // textBoxAuthor
             // 
@@ -185,7 +186,7 @@
             textBoxAuthor.Name = "textBoxAuthor";
             textBoxAuthor.Size = new Size(233, 27);
             textBoxAuthor.TabIndex = 14;
-            textBoxAuthor.Tag = "FieldsToEdit";
+            textBoxAuthor.Tag = "EditFields";
             // 
             // comboBoxGenre
             // 
@@ -195,7 +196,7 @@
             comboBoxGenre.Name = "comboBoxGenre";
             comboBoxGenre.Size = new Size(159, 28);
             comboBoxGenre.TabIndex = 15;
-            comboBoxGenre.Tag = "FieldsToEdit";
+            comboBoxGenre.Tag = "EditFields";
             // 
             // richTextBoxDescription
             // 
@@ -204,7 +205,7 @@
             richTextBoxDescription.Name = "richTextBoxDescription";
             richTextBoxDescription.Size = new Size(233, 85);
             richTextBoxDescription.TabIndex = 16;
-            richTextBoxDescription.Tag = "FieldsToEdit";
+            richTextBoxDescription.Tag = "EditFields";
             richTextBoxDescription.Text = "";
             // 
             // buttonSave
@@ -235,7 +236,7 @@
             checkBoxIsRemoved.Name = "checkBoxIsRemoved";
             checkBoxIsRemoved.Size = new Size(18, 17);
             checkBoxIsRemoved.TabIndex = 19;
-            checkBoxIsRemoved.Tag = "FieldsToEdit";
+            checkBoxIsRemoved.Tag = "EditFields";
             checkBoxIsRemoved.UseVisualStyleBackColor = true;
             // 
             // labelIsAvailable
@@ -290,6 +291,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FormBook";
+            Tag = "DisableFields";
             Text = "Book";
             ResumeLayout(false);
             PerformLayout();

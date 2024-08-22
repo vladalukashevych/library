@@ -39,7 +39,7 @@ namespace WinFormsApp.Forms
         {
             SelectedBook = book;
             InitializeComponent();
-            EnableEdit();            
+            EnableEdit();
         }
 
         private void FormRecord_Load(object sender, EventArgs e)
@@ -110,26 +110,34 @@ namespace WinFormsApp.Forms
                     textBoxDate.Text = CurrentRecord.Date.ToString("dd/MM/yy HH:mm");
             }
             textBoxStatus.Text = _makeReturn ? "Returned" : "Taken";
-            
+
         }
         private void EnableEdit()
         {
             textBoxBook.ReadOnly = false;
             textBoxUser.ReadOnly = false;
-            listBoxBooks.Enabled = true;
-            listBoxUsers.Enabled = true;
             buttonSave.Visible = true;
+            foreach (Control c in this.Controls)
+            {
+                if (c.Tag == "DisableFields")
+                    c.Enabled = false;                
+            }
         }
         private void DisableEdit()
         {
             textBoxBook.ReadOnly = true;
             textBoxUser.ReadOnly = true;
-            listBoxBooks.Enabled = false;
-            listBoxUsers.Enabled = false;
             buttonSave.Visible = false;
             if (_makeReturn)
             {
                 buttonSave.Visible = true;
+            }
+            foreach (Control c in this.Controls)
+            {
+                if (c.Tag == "DisableFields")
+                    c.Enabled = _makeReturn ? false : true;
+                else if (c.Tag == "EditFields")
+                    c.BackColor = Color.White;
             }
         }
 
@@ -210,14 +218,14 @@ namespace WinFormsApp.Forms
                 if (u.NameForRecord.Contains(textBoxUser.Text, StringComparison.CurrentCultureIgnoreCase))
                 {
                     listBoxUsers.Items.Add(u);
-                }                
+                }
             }
             if (listBoxUsers.Items.Count == 1)
                 listBoxUsers.SelectedIndex = 0;
         }
 
         private bool Validation(out string message)
-        {            
+        {
             if (listBoxBooks.SelectedItems.Count == 0)
             {
                 message = "Please, select the book.";
@@ -232,7 +240,5 @@ namespace WinFormsApp.Forms
             message = "Validation is successfull.";
             return true;
         }
-
-
     }
 }

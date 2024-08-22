@@ -120,6 +120,7 @@
             textBoxId.ReadOnly = true;
             textBoxId.Size = new Size(87, 27);
             textBoxId.TabIndex = 11;
+            textBoxId.Tag = "DisableFields";
             // 
             // textBoxFirstName
             // 
@@ -128,7 +129,7 @@
             textBoxFirstName.Name = "textBoxFirstName";
             textBoxFirstName.Size = new Size(175, 27);
             textBoxFirstName.TabIndex = 12;
-            textBoxFirstName.Tag = "FieldsToEdit";
+            textBoxFirstName.Tag = "EditFields";
             // 
             // textBoxJoiningDate
             // 
@@ -139,6 +140,7 @@
             textBoxJoiningDate.ReadOnly = true;
             textBoxJoiningDate.Size = new Size(175, 27);
             textBoxJoiningDate.TabIndex = 13;
+            textBoxJoiningDate.Tag = "DisableFields";
             // 
             // textBoxRecordsNumber
             // 
@@ -149,6 +151,7 @@
             textBoxRecordsNumber.ReadOnly = true;
             textBoxRecordsNumber.Size = new Size(87, 27);
             textBoxRecordsNumber.TabIndex = 15;
+            textBoxRecordsNumber.Tag = "DisableFields";
             // 
             // textBoxLastName
             // 
@@ -157,7 +160,7 @@
             textBoxLastName.Name = "textBoxLastName";
             textBoxLastName.Size = new Size(175, 27);
             textBoxLastName.TabIndex = 17;
-            textBoxLastName.Tag = "FieldsToEdit";
+            textBoxLastName.Tag = "EditFields";
             // 
             // buttonSave
             // 
@@ -186,7 +189,7 @@
             checkBoxIsRemoved.Name = "checkBoxIsRemoved";
             checkBoxIsRemoved.Size = new Size(18, 17);
             checkBoxIsRemoved.TabIndex = 21;
-            checkBoxIsRemoved.Tag = "FieldsToEdit";
+            checkBoxIsRemoved.Tag = "EditFields";
             checkBoxIsRemoved.UseVisualStyleBackColor = true;
             // 
             // labelIsRemoved
@@ -204,6 +207,7 @@
             dateTimePickerBirthday.Name = "dateTimePickerBirthday";
             dateTimePickerBirthday.Size = new Size(177, 27);
             dateTimePickerBirthday.TabIndex = 22;
+            dateTimePickerBirthday.Tag = "EditFields";
             // 
             // FormUser
             // 

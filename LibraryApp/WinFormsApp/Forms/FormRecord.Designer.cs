@@ -48,7 +48,7 @@
             // 
             labelRecord.AutoSize = true;
             labelRecord.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelRecord.Location = new Point(236, 33);
+            labelRecord.Location = new Point(243, 18);
             labelRecord.Name = "labelRecord";
             labelRecord.Size = new Size(106, 32);
             labelRecord.TabIndex = 9;
@@ -57,18 +57,18 @@
             // textBoxId
             // 
             textBoxId.BackColor = SystemColors.Window;
-            textBoxId.Enabled = false;
-            textBoxId.Location = new Point(119, 79);
+            textBoxId.Location = new Point(126, 91);
             textBoxId.Margin = new Padding(6);
             textBoxId.Name = "textBoxId";
             textBoxId.ReadOnly = true;
             textBoxId.Size = new Size(87, 27);
             textBoxId.TabIndex = 12;
+            textBoxId.Tag = "DisableFields";
             // 
             // labelId
             // 
             labelId.AutoSize = true;
-            labelId.Location = new Point(85, 82);
+            labelId.Location = new Point(91, 94);
             labelId.Margin = new Padding(10);
             labelId.Name = "labelId";
             labelId.Size = new Size(25, 20);
@@ -78,7 +78,7 @@
             // labelUser
             // 
             labelUser.AutoSize = true;
-            labelUser.Location = new Point(69, 328);
+            labelUser.Location = new Point(75, 326);
             labelUser.Margin = new Padding(3);
             labelUser.Name = "labelUser";
             labelUser.Size = new Size(41, 20);
@@ -88,31 +88,31 @@
             // textBoxUser
             // 
             textBoxUser.BackColor = SystemColors.Window;
-            textBoxUser.Location = new Point(119, 325);
+            textBoxUser.Location = new Point(125, 323);
             textBoxUser.Margin = new Padding(6);
             textBoxUser.Name = "textBoxUser";
             textBoxUser.ReadOnly = true;
             textBoxUser.Size = new Size(344, 27);
             textBoxUser.TabIndex = 17;
-            textBoxUser.Tag = "FieldsToEdit";
+            textBoxUser.Tag = "EditFields";
             textBoxUser.TextChanged += textBoxUser_TextChanged;
             // 
             // textBoxBook
             // 
             textBoxBook.BackColor = SystemColors.Window;
-            textBoxBook.Location = new Point(119, 143);
+            textBoxBook.Location = new Point(126, 171);
             textBoxBook.Margin = new Padding(6);
             textBoxBook.Name = "textBoxBook";
             textBoxBook.ReadOnly = true;
             textBoxBook.Size = new Size(344, 27);
             textBoxBook.TabIndex = 19;
-            textBoxBook.Tag = "FieldsToEdit";
+            textBoxBook.Tag = "EditFields";
             textBoxBook.TextChanged += textBoxBook_TextChanged;
             // 
             // labelBook
             // 
             labelBook.AutoSize = true;
-            labelBook.Location = new Point(69, 146);
+            labelBook.Location = new Point(70, 174);
             labelBook.Margin = new Padding(3);
             labelBook.Name = "labelBook";
             labelBook.Size = new Size(46, 20);
@@ -121,7 +121,7 @@
             // 
             // buttonSave
             // 
-            buttonSave.Location = new Point(412, 499);
+            buttonSave.Location = new Point(426, 532);
             buttonSave.Name = "buttonSave";
             buttonSave.Size = new Size(131, 29);
             buttonSave.TabIndex = 21;
@@ -132,7 +132,7 @@
             // labelDate
             // 
             labelDate.AutoSize = true;
-            labelDate.Location = new Point(66, 489);
+            labelDate.Location = new Point(72, 481);
             labelDate.Margin = new Padding(3);
             labelDate.Name = "labelDate";
             labelDate.Size = new Size(44, 20);
@@ -142,38 +142,40 @@
             // textBoxDate
             // 
             textBoxDate.BackColor = SystemColors.Window;
-            textBoxDate.Enabled = false;
-            textBoxDate.Location = new Point(119, 486);
+            textBoxDate.Location = new Point(125, 478);
             textBoxDate.Margin = new Padding(6);
             textBoxDate.Name = "textBoxDate";
             textBoxDate.ReadOnly = true;
             textBoxDate.Size = new Size(170, 27);
             textBoxDate.TabIndex = 23;
+            textBoxDate.Tag = "DisableFields";
             // 
             // listBoxBooks
             // 
             listBoxBooks.FormattingEnabled = true;
-            listBoxBooks.Location = new Point(118, 188);
+            listBoxBooks.Location = new Point(125, 207);
+            listBoxBooks.Margin = new Padding(6);
             listBoxBooks.Name = "listBoxBooks";
             listBoxBooks.Size = new Size(345, 104);
             listBoxBooks.TabIndex = 24;
-            listBoxBooks.Tag = "FieldsToEdit";
+            listBoxBooks.Tag = "EditFields";
             listBoxBooks.SelectedIndexChanged += listBoxBooks_SelectedIndexChanged;
             // 
             // listBoxUsers
             // 
             listBoxUsers.FormattingEnabled = true;
-            listBoxUsers.Location = new Point(119, 361);
+            listBoxUsers.Location = new Point(126, 362);
+            listBoxUsers.Margin = new Padding(6);
             listBoxUsers.Name = "listBoxUsers";
             listBoxUsers.Size = new Size(345, 104);
             listBoxUsers.TabIndex = 25;
-            listBoxUsers.Tag = "FieldsToEdit";
+            listBoxUsers.Tag = "EditFields";
             listBoxUsers.SelectedIndexChanged += listBoxUsers_SelectedIndexChanged;
             // 
             // labelStatus
             // 
             labelStatus.AutoSize = true;
-            labelStatus.Location = new Point(71, 535);
+            labelStatus.Location = new Point(64, 136);
             labelStatus.Margin = new Padding(3);
             labelStatus.Name = "labelStatus";
             labelStatus.Size = new Size(52, 20);
@@ -183,19 +185,19 @@
             // textBoxStatus
             // 
             textBoxStatus.BackColor = SystemColors.Window;
-            textBoxStatus.Enabled = false;
-            textBoxStatus.Location = new Point(132, 528);
+            textBoxStatus.Location = new Point(125, 133);
             textBoxStatus.Margin = new Padding(6);
             textBoxStatus.Name = "textBoxStatus";
             textBoxStatus.ReadOnly = true;
             textBoxStatus.Size = new Size(170, 27);
             textBoxStatus.TabIndex = 27;
+            textBoxStatus.Tag = "DisableFields";
             // 
             // FormRecord
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(583, 567);
+            ClientSize = new Size(592, 592);
             Controls.Add(textBoxStatus);
             Controls.Add(labelStatus);
             Controls.Add(listBoxUsers);

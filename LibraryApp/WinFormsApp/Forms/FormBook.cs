@@ -67,8 +67,8 @@ namespace WinFormsApp.Forms
             buttonSave.Visible = true;            
             foreach (Control c in this.Controls)
             {
-                if (c.Tag == "FieldsToEdit")
-                    c.BackColor = Color.LightYellow;
+                if (c.Tag == "DisableFields")
+                    c.Enabled = false;                
             }
 
         }
@@ -85,11 +85,10 @@ namespace WinFormsApp.Forms
             buttonSave.Visible = false;            
             foreach (Control c in this.Controls)
             {
-                if (c.Tag == "FieldsToEdit")
-                {
+                if (c.Tag == "DisableFields")                
+                    c.Enabled = true;
+                else if (c.Tag == "EditFields")
                     c.BackColor = Color.White;
-                    c.ForeColor = Color.Black;
-                }
             }
         }
 
